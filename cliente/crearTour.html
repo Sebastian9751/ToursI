@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>crearTour</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" integrity="sha384-vmbbJNC6Li6w5GzrydJ5cd4ttMcLJ/Nl5xgp5saZ5QV8fp7zdsrFDcCasGqOFlaC"></script>
+  </head>
+<body>
+<div class="container lista">
+
+
+<form action="javascript:;" onsubmit="crearTour(this)">
+    <div class="form-group col-md-6 lista">
+      <label >Nombre</label>
+      <input type="text" class="form-control" name="nombre" >
+    </div>
+    <div class="form-group col-md-6 lista">
+      <label >Descripcion</label>
+      <input type="text" class="form-control" name="descripcion" >
+    </div>
+    <div class="form-group col-md-6 lista">
+        <label >Destino</label>
+        <input type="text" class="form-control" name="destino" >
+      </div>
+    <div class="form-group col-md-6 lista">
+        <label >precio</label>
+        <input type="number" class="form-control" name="precio" >
+      </div>
+      <div class="form-group col-md-6 lista">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+
+</div>
+
+  </body>
+  </html>
+<script>
+
+function crearTour(){
+    var Tour=[];
+    var nombre = null;
+    var descripcion =null;
+    var precio = null;
+    var destino = null;
+    console.log("entro a crear");
+        
+
+        nombre = document.getElementsByName("nombre")[0].value;
+        descripcion = document.getElementsByName("descripcion")[0].value;
+        precio = document.getElementsByName("precio")[0].value;
+        destino = document.getElementsByName("destino")[0].value;
+
+    Tour={
+        nombre:nombre,
+        descripcion:descripcion,
+        precio:precio,
+        destino:destino,
+
+    };
+    console.log(Tour);
+axios.post('http://localhost:4000/tours/', Tour)
+    
+    .then(response => {
+        console.log("test");
+        element.innerHTML = response
+        
+     } )
+    .catch(error => {
+        element.parentElement.innerHTML = `Error: ${error.message}`;
+        console.error('There was an error!', error);
+    });
+
+}
+
+</script>
+  <style>
+    .lista {
+      margin-top: 50px;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    .titulo_top{
+      background-color: dodgerblue;
+      color:white;
+    }
+    .btn-primary{
+      background-color:dodgerblue;
+      float:right;
+    
+    }
+   </style>

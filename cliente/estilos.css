@@ -15,7 +15,7 @@ body{
 .lista {
     margin-top: -30px;
     margin-left: 100px;
-    margin-right: 100px;;
+    margin-right: 100px;
     background-color: white;
     
     
@@ -56,7 +56,7 @@ body{
   
   }
   div p{
-    font-family: 'Domine';
+    font-family: Domine, sans-serif;
     
   }
 

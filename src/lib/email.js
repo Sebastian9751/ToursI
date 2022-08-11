@@ -3,6 +3,10 @@ var nodemailer = require('nodemailer');
 
 //Crea el objeto de transporte
 var transporter = nodemailer.createTransport({
+    secure: true,
+    requireTLS: true,
+    port: 465,
+    secured: true,
     service: 'gmail',
     auth: {
         user: 'happypoollimpieza@gmail.com',

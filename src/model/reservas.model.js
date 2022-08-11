@@ -96,7 +96,7 @@ Reservas.getAll = (result) => {
             result(null, err);
             return;
         }
-        //console.log("Reservas: ", res);
+        
         result(null, res);
     });
 };
