@@ -59,7 +59,7 @@ Reservas.findById = (id, result) => {
                     return;
                 }
                 res[0].idTour = response[0];
-                //console.log("Reservas: ", res);
+                
                 result(null, res[0]);
             });
             return;

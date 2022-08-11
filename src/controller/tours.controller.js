@@ -90,7 +90,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Tours.remove(req.params.id, (err, data) => {
+    Tours.remove(req.params.id, (err, _data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
@@ -105,8 +105,8 @@ exports.delete = (req, res) => {
     });
 };
 
-exports.deleteAll = (req, res) => {
-    Tours.removeAll((err, data) => {
+exports.deleteAll = (_req, res) => {
+    Tours.removeAll((err, _data) => {
         if (err)
             res.status(500).send({
                 message:

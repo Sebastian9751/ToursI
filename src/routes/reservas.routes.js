@@ -1,6 +1,6 @@
 const reservas = require("../controller/reservas.controller.js");
 
-var router = require("express").Router();
+let router = require("express").Router();
 
 router.post("/", reservas.create);
 

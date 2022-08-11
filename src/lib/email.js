@@ -1,8 +1,8 @@
 //Requere el paquete para enviar email
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 //Crea el objeto de transporte
-var transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
     secure: true,
     requireTLS: true,
     port: 465,
@@ -17,7 +17,7 @@ var transporter = nodemailer.createTransport({
 const helpers = {};
 
 helpers.sendEmail = async (newEmail) => {
-    var contentHTML = `
+    let contentHTML = `
         <h1>User Information</h1>
         <ul>
             <li>Username: ${newEmail.nombre_titular}</li>
@@ -30,7 +30,7 @@ helpers.sendEmail = async (newEmail) => {
         </ul>
         <p>${newEmail}</p>`;
         
-    var mailOptions = {
+    let mailOptions = {
         from: 'happypoollimpieza@gmail.com',
         to: newEmail.correo_electronico,
         subject: "Reserva exitosa",

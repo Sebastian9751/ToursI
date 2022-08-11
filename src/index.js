@@ -23,7 +23,7 @@ const corsOptions ={
  }
 
 // Global Variables
-app.use((req, res, next) => {
+app.use((_req, _res, next) => {
     next();
 });
 

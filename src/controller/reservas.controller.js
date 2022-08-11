@@ -50,7 +50,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
+exports.findAll = (_req, res) => {
     Reservas.getAll((err, data) => {
         if (err) {
             res.status(500).send({
@@ -90,7 +90,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Reservas.remove(req.params.id, (err, data) => {
+    Reservas.remove(req.params.id, (err, _data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
@@ -105,8 +105,8 @@ exports.delete = (req, res) => {
     });
 };
 
-exports.deleteAll = (req, res) => {
-    Reservas.removeAll((err, data) => {
+exports.deleteAll = (_req, res) => {
+    Reservas.removeAll((err, _data) => {
         if (err)
             res.status(500).send({
                 message:
