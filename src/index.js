@@ -14,13 +14,13 @@ app.set('json spaces', 2);
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(cors());
 
 const corsOptions ={
-    origin:'*',
+    origin:'trustedwebsite.com',
     credentials:true,
     optionSuccessStatus:200
  }
+ app.use(cors(corsOptions));
 
 // Global Variables
 app.use((_req, _res, next) => {
